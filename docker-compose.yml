@@ -1,0 +1,26 @@
+services:
+  croquis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: croquis_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./asset:/app/asset
+      - ./uploads:/app/uploads
+      - ./cache:/app/.cache 
+    environment:
+      - TRANSFORMERS_CACHE=/app/.cache
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    networks:
+      - web
+    restart: unless-stopped
+networks:
+  web:
+    name: "web"
+    driver: bridge
