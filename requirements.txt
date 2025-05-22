@@ -1,0 +1,8 @@
+flask
+transformers==4.50.1
+accelerate==1.5.2
+safetensors==0.5.3
+pillow==11.0.0
+scipy==1.15.2
+controlnet-aux==0.0.9
+
