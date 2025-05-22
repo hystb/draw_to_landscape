@@ -2,7 +2,7 @@ from diffusers import StableDiffusionControlNetPipeline, ControlNetModel
 import torch
 
 from PIL import Image
-
+print("Downloading model weights from Hugging Face Hub...(this may take a while)")
 controlnet = ControlNetModel.from_pretrained("hystb/Finetune_controlnet_draw_to_landscape")
 pipe = StableDiffusionControlNetPipeline.from_pretrained(
     "runwayml/stable-diffusion-v1-5",
