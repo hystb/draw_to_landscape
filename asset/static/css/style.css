@@ -1,0 +1,170 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100vh;
+  }
+
+body {
+	margin: 0;
+	background-color: #000;
+	background-size: cover;
+	background-position: center;
+	font-family: 'Segoe UI', sans-serif;
+	color: #fff;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .title-bar {
+	padding: 0.6rem 1rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 0 4px #000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: move;
+	user-select: none;
+	border-radius: 2rem 2rem 0 0;
+  }
+
+/* Layout & fond */
+.container {
+	position: absolute;
+	overflow: hidden;
+	width: 768px;
+	height: auto;
+	background: rgba(255, 255, 255, 0.05);
+	backdrop-filter: blur(3px); /* 👈 réduit à 4px au lieu de 12 */
+	-webkit-backdrop-filter: blur(3px);
+	border-radius: 2rem;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+	text-align: center;
+  }
+  
+  /* Titre */
+  h1 {
+	font-size: 1.5rem;
+	margin: 0, 0, 0, 0;
+	text-shadow: 0 0 10px #000;
+  }
+  
+  /* Dessin */
+  .canvas-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+  }
+  
+  canvas {
+	border-radius: 1rem;
+	border: 2px solid #ffffff33;
+	background-color: #ffffff05;
+	cursor: crosshair;
+  }
+  
+  /* Toolbar */
+  .toolbar {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+  }
+  
+  .tools {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+  }
+  
+  .buttons {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+  }
+  
+  button {
+	padding: 0.7rem 1.5rem;
+	font-size: 1rem;
+	border: none;
+	border-radius: 999px;
+	background: linear-gradient(to right, #ffffffcc, #ffffffaa);
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+  }
+  
+  button:hover {
+	background: #fff;
+	transform: scale(1.05);
+  }
+  
+  /* Loader */
+  .loader-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(4px);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+  }
+  
+  .loader-spinner {
+	width: 60px;
+	height: 60px;
+	border: 6px solid #ffffff33;
+	border-top: 6px solid #fff;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  @media (max-width: 600px) {
+	.container {
+	  width: 90%;
+	  padding: 1rem;
+	}
+  
+	h1 {
+	  font-size: 2rem;
+	}
+  
+	.toolbar {
+	  gap: 0.5rem;
+	}
+  
+	.tools {
+	  flex-direction: column;
+	  gap: 0.3rem;
+	}
+  
+	.buttons {
+	  flex-direction: column;
+	  gap: 0.5rem;
+	}
+  
+	button {
+	  width: 100%;
+	  font-size: 1rem;
+	}
+  
+	canvas {
+	  width: 90vw;
+	  height: 90vw;
+	}
+  }

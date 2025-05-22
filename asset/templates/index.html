@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Croquis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="title-bar">🖼️ Croquis IA</div>
+    <div class="canvas-wrapper">
+      <canvas id="canvas" width="768" height="384"></canvas>
+      <canvas id="hiddenCanvas" width="768" height="384" style="display: none;"></canvas>
+    </div>
+
+    <div class="toolbar">
+      <div class="tools">
+        <label for="colorPicker">🎨</label>
+        <input type="color" id="colorPicker" value="#000000">
+        
+        <label for="brushSize">🖌️</label>
+        <input type="range" id="brushSize" min="10" max="60" value="3">
+      </div>
+
+      <div class="buttons">
+        <button onclick="clearCanvas()">🧼 Effacer</button>
+        <button onclick="undo()">↩️ Undo</button>
+        <button onclick="uploadSketch()">✨ Générer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" class="loader-overlay">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
